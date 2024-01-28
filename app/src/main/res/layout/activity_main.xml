@@ -9,11 +9,53 @@
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="148dp"
-        android:layout_marginTop="347dp"
+        android:layout_width="116dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="144dp"
+        android:layout_marginTop="468dp"
         android:text="Button"
+        android:textColor="@color/white"
+        app:backgroundTint="@color/orange"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="414dp"
+        android:layout_height="63dp"
+        android:layout_centerInParent="true"
+        android:background="@color/orange"
+        android:gravity="center"
+        android:text="Paragoni"
+        android:textColor="@color/white"
+        android:textSize="35sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="125dp"
+        android:layout_marginTop="44dp"
+        android:gravity="center"
+        android:text="Logowanie"
+        android:textColor="@color/white"
+        android:textSize="33sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="220dp"
+        android:layout_height="121dp"
+        android:layout_marginStart="95dp"
+        android:layout_marginTop="28dp"
+        android:gravity="center"
+        android:text="Zaloguj się, klikając na odcisk palca"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView17" />
 </androidx.constraintlayout.widget.ConstraintLayout>

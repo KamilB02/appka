@@ -135,13 +135,13 @@ class GridActivity : AppCompatActivity() {
                     if(cameraFlesh){
                         if (flashOn){
                             flashOn = false
-                            bottomNavigationView.menu.findItem(R.id.bottom_profile).setIcon(R.drawable.baseline_brightness_5_24)
+                            bottomNavigationView.menu.findItem(R.id.bottom_profile).setIcon(R.drawable.baseline_flashlight_on_24)
                             flashLightOff()
 
                         }
                         else{
                             flashOn = true
-                            bottomNavigationView.menu.findItem(R.id.bottom_profile).setIcon(R.drawable.baseline_flashlight_on_24)
+                            bottomNavigationView.menu.findItem(R.id.bottom_profile).setIcon(R.drawable.baseline_brightness_5_24)
                             flashLightOn()
 
                         }

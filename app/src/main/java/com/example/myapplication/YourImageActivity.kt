@@ -11,6 +11,8 @@ import android.os.Build
 import android.os.Bundle
 import android.os.VibrationEffect
 import android.os.Vibrator
+import android.view.Window
+import android.view.WindowManager
 import android.widget.Button
 import android.widget.GridView
 import android.widget.ImageView
@@ -33,6 +35,7 @@ class YourImageActivity : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        supportActionBar?.hide()
         setContentView(R.layout.activity_your_image)
 
         val imageView = findViewById<ImageView>(R.id.imageView)
@@ -50,20 +53,20 @@ class YourImageActivity : AppCompatActivity() {
         val imageURL = intent.getStringExtra("imageURL")
         val caption = intent.getStringExtra("caption")
         val store = intent.getStringExtra("store")
-        val warrantyMonths = intent.getStringExtra("warrantyMonths")
+        val warrantyMonths = intent.getIntExtra("warrantyMonths",0)
         val purchaseDate = intent.getStringExtra("purchaseDate")
-        val returnPeriod = intent.getStringExtra("returnPeriod")
-        val price = intent.getStringExtra("price")
+        val returnPeriod = intent.getIntExtra("returnPeriod",0)
+        val price = intent.getDoubleExtra("price",0.0)
         imageId = intent.getStringExtra("id").toString()
 
         // Ustaw wybrane zdjęcie i podpis
         Glide.with(this).load(imageURL).into(imageView)
         captionTextView.text = caption
         storeTextView.text = store
-        warrantyMonthsView.text = warrantyMonths
+        warrantyMonthsView.text = warrantyMonths.toString()
         purchaseDateView.text = purchaseDate
-        returnPeriodView.text = returnPeriod
-        priceView.text = price
+        returnPeriodView.text = returnPeriod.toString()
+        priceView.text = price.toString()
 
         // Inicjalizacja referencji do bazy danych
         databaseReference = FirebaseDatabase.getInstance().getReference("Images")

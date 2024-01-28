@@ -53,13 +53,11 @@ class UploadActivity : AppCompatActivity() {
     private val calendar = Calendar.getInstance()
     private val CHANNEL_ID = "channel_ID"
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        supportActionBar?.hide()
         setContentView(R.layout.activity_upload)
 
-        supportActionBar?.hide()
 
         uploadButton = findViewById(R.id.uploadButton)
         button = findViewById(R.id.button)
@@ -83,7 +81,7 @@ class UploadActivity : AppCompatActivity() {
         seekBar2.max = 100
 
         editTextDate = findViewById(R.id.editTextDate)
-
+        editTextDate.isClickable = true
         editTextDate.setOnClickListener {
             showDatePickerDialog()
         }
@@ -147,11 +145,11 @@ class UploadActivity : AppCompatActivity() {
         }
 
         uploadButton?.setOnClickListener {
-            if (imageUri != null) {
+            if (imageUri != null ) {
                 uploadButton?.text = ""  // Pusty tekst
                 uploadToFirebase(imageUri!!)
             } else {
-                Toast.makeText(this@UploadActivity, "Dodaj zdjęcie", Toast.LENGTH_SHORT)
+                Toast.makeText(this@UploadActivity, "Brak danych lub są one nie poprawne", Toast.LENGTH_SHORT)
                     .show()
             }
         }
@@ -164,20 +162,19 @@ class UploadActivity : AppCompatActivity() {
 
 
     private fun uploadToFirebase(uri: Uri) {
-
-        val warrantyMonthsSeekBar = findViewById<SeekBar>(R.id.seekBar1)
+         val warrantyMonthsSeekBar = findViewById<SeekBar>(R.id.seekBar1)
+         val returnPeriodSeekBar = findViewById<SeekBar>(R.id.seekBar2)
+        val purchaseDateEditText = findViewById<EditText>(R.id.editTextDate)
+         val storeEditText = findViewById<EditText>(R.id.Sklep)
+         val priceEditText = findViewById<EditText>(R.id.editTextNumberDecimal)
         val warrantyMonths = warrantyMonthsSeekBar.progress
 
-        val returnPeriodSeekBar = findViewById<SeekBar>(R.id.seekBar2)
         val returnPeriod = returnPeriodSeekBar.progress
 
-        val purchaseDateEditText = findViewById<EditText>(R.id.editTextDate)
         val purchaseDateStr = purchaseDateEditText.text.toString()
 
-        val storeEditText = findViewById<EditText>(R.id.Sklep)
         val store = storeEditText.text.toString()
 
-        val priceEditText = findViewById<EditText>(R.id.editTextNumberDecimal)
         val price = priceEditText.text.toString().toDouble()
 
         val caption = uploadCaption?.text.toString()
@@ -294,7 +291,7 @@ class UploadActivity : AppCompatActivity() {
     private fun showDatePickerDialog() {
         val datePickerDialog = DatePickerDialog(
             this,
-            DatePickerDialog.OnDateSetListener { view: DatePicker, year: Int, monthOfYear: Int, dayOfMonth: Int ->
+            DatePickerDialog.OnDateSetListener { _, year, monthOfYear, dayOfMonth ->
                 // Aktualizuj pole tekstowe po wybraniu daty
                 calendar.set(Calendar.YEAR, year)
                 calendar.set(Calendar.MONTH, monthOfYear)
