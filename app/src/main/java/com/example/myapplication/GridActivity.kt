@@ -44,38 +44,14 @@ class GridActivity : AppCompatActivity() {
 
 
         if (requestCode == YOUR_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
-            // Tutaj możesz umieścić kod do odświeżenia listy danych
             refreshYourData()
         }
     }
 
-    private fun refreshYourData() {
-        // Pobierz nową listę danych z bazy danych
-        // i przypisz ją do adaptera lub innej logiki odświeżania interfejsu użytkownika
-        dataList.clear()  // Wyczyść aktualną listę danych
-        adapter.notifyDataSetChanged()  // Powiadom adapter o zmianie danych
-        // Pobierz nowe dane z bazy danych i dodaj do listy
-        databaseReference.addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                for (dataSnapshot in snapshot.children) {
-                    val dataClass: DataClass? = dataSnapshot.getValue(DataClass::class.java)
-                    if (dataClass != null) {
-                        dataList.add(dataClass)
-                    }
-                }
-                adapter.notifyDataSetChanged()  // Ponownie powiadom adapter o zmianie danych
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-                // Obsługa błędu pobierania danych
-            }
-        })
-    }
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.gridview)
-
 
         gridView = findViewById(R.id.gridView1)
         dataList = ArrayList()
@@ -135,13 +111,13 @@ class GridActivity : AppCompatActivity() {
                     if(cameraFlesh){
                         if (flashOn){
                             flashOn = false
-                            bottomNavigationView.menu.findItem(R.id.bottom_profile).setIcon(R.drawable.baseline_flashlight_on_24)
+                            bottomNavigationView.menu.findItem(R.id.bottom_profile).setIcon(R.drawable.baseline_flashlight_off_24)
                             flashLightOff()
 
                         }
                         else{
                             flashOn = true
-                            bottomNavigationView.menu.findItem(R.id.bottom_profile).setIcon(R.drawable.baseline_brightness_5_24)
+                            bottomNavigationView.menu.findItem(R.id.bottom_profile).setIcon(R.drawable.baseline_flashlight_on_24)
                             flashLightOn()
 
                         }
@@ -179,5 +155,25 @@ class GridActivity : AppCompatActivity() {
             @Suppress("DEPRECATION")
             vibrator?.vibrate(50)
         }
+    }
+    private fun refreshYourData() {
+
+        dataList.clear()
+        adapter.notifyDataSetChanged()
+        databaseReference.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                for (dataSnapshot in snapshot.children) {
+                    val dataClass: DataClass? = dataSnapshot.getValue(DataClass::class.java)
+                    if (dataClass != null) {
+                        dataList.add(dataClass)
+                    }
+                }
+                adapter.notifyDataSetChanged()  // Ponownie powiadom adapter o zmianie danych
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                // Obsługa błędu pobierania danych
+            }
+        })
     }
 }

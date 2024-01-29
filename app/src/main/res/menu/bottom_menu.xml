@@ -7,5 +7,5 @@
     <item
         android:id="@+id/bottom_profile"
         android:title="Latarka"
-        android:icon="@drawable/baseline_flashlight_on_24" />
+        android:icon="@drawable/baseline_flashlight_off_24" />
 </menu>

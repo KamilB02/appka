@@ -34,6 +34,7 @@ import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
+import java.io.File
 
 class UploadActivity : AppCompatActivity() {
 
@@ -146,7 +147,6 @@ class UploadActivity : AppCompatActivity() {
 
         uploadButton?.setOnClickListener {
             if (imageUri != null ) {
-                uploadButton?.text = ""  // Pusty tekst
                 uploadToFirebase(imageUri!!)
             } else {
                 Toast.makeText(this@UploadActivity, "Brak danych lub są one nie poprawne", Toast.LENGTH_SHORT)
@@ -156,7 +156,6 @@ class UploadActivity : AppCompatActivity() {
         button?.setOnClickListener {
             val intent = Intent(this@UploadActivity, GridActivity::class.java)
             startActivity(intent)
-            finish()
         }
     }
 
@@ -203,6 +202,8 @@ class UploadActivity : AppCompatActivity() {
                 }
                 progressBar?.visibility = View.INVISIBLE
 
+
+
                 createNotificationChannel()
 
                 var builder = NotificationCompat.Builder(this, CHANNEL_ID)
@@ -223,11 +224,8 @@ class UploadActivity : AppCompatActivity() {
                     }
                     notify(1, builder.build())
                 }
-
                 Toast.makeText(this@UploadActivity, "Zakończono powodzeniem !", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this@UploadActivity, GridActivity::class.java)
-                startActivity(intent)
-                finish()
+                startActivity(Intent(this@UploadActivity,GridActivity::class.java))
             }
         }.addOnProgressListener {
             progressBar?.progressTintList = ColorStateList.valueOf(android.graphics.Color.WHITE)

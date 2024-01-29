@@ -8,14 +8,14 @@
     <TextView
         android:id="@+id/textView16"
         android:layout_width="414dp"
-        android:layout_height="63dp"
+        android:layout_height="73dp"
         android:layout_centerInParent="true"
         android:background="@color/orange"
         android:gravity="center"
         android:text="Paragoni"
         android:textColor="@color/white"
         android:textSize="35sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
@@ -44,9 +44,9 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="182dp"
-        android:layout_height="197dp"
-        android:layout_marginStart="112dp"
+        android:layout_width="240dp"
+        android:layout_height="273dp"
+        android:layout_marginStart="68dp"
         android:layout_marginTop="96dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

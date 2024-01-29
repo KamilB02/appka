@@ -63,10 +63,10 @@ class YourImageActivity : AppCompatActivity() {
         Glide.with(this).load(imageURL).into(imageView)
         captionTextView.text = caption
         storeTextView.text = store
-        warrantyMonthsView.text = warrantyMonths.toString()
+        warrantyMonthsView.text = "$warrantyMonths miesiące/cy"
         purchaseDateView.text = purchaseDate
-        returnPeriodView.text = returnPeriod.toString()
-        priceView.text = price.toString()
+        returnPeriodView.text = "$returnPeriod dni"
+        priceView.text = "$price zł"
 
         // Inicjalizacja referencji do bazy danych
         databaseReference = FirebaseDatabase.getInstance().getReference("Images")
@@ -74,12 +74,13 @@ class YourImageActivity : AppCompatActivity() {
         // Dodaj obsługę kliknięcia do przycisku usuwania
         deleteButton.setOnClickListener {
             deleteImageFromDatabase()
+            val intent = Intent(this@YourImageActivity, GridActivity::class.java)
+            startActivity(intent)
         }
 
         Button.setOnClickListener {
             val intent = Intent(this@YourImageActivity, GridActivity::class.java)
             startActivity(intent)
-            finish()
         }
     }
 
@@ -88,13 +89,13 @@ class YourImageActivity : AppCompatActivity() {
         if (imageId.isNotEmpty()) {
             // Usuń obraz z bazy danych na podstawie ID
             databaseReference.child(imageId).removeValue().addOnSuccessListener {
-                Toast.makeText(this@YourImageActivity, "Image deleted", Toast.LENGTH_SHORT).show()
-                finish() // Zakończ aktywność po usunięciu obrazu
+                Toast.makeText(this@YourImageActivity, "Usunięto", Toast.LENGTH_SHORT).show()
+                 // Zakończ aktywność po usunięciu obrazu
             }.addOnFailureListener {
-                Toast.makeText(this@YourImageActivity, "Failed to delete image", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@YourImageActivity, "Błąd", Toast.LENGTH_SHORT).show()
             }
         } else {
-            Toast.makeText(this@YourImageActivity, "Image ID not available", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@YourImageActivity, "Nie znaleziono id", Toast.LENGTH_SHORT).show()
         }
     }
 }

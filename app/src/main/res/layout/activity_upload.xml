@@ -9,24 +9,24 @@
     <TextView
         android:id="@+id/textView16"
         android:layout_width="412dp"
-        android:layout_height="63dp"
+        android:layout_height="73dp"
         android:layout_centerInParent="true"
         android:background="@color/orange"
         android:gravity="center"
         android:text="Paragoni"
         android:textColor="@color/white"
         android:textSize="35sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <SeekBar
         android:id="@+id/seekBar1"
-        android:layout_width="221dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="88dp"
+        android:layout_width="218dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="80dp"
         android:layout_marginTop="12dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toBottomOf="@+id/textView1" />
 
     <Button
         android:id="@+id/uploadButton"
@@ -35,8 +35,8 @@
         android:layout_marginEnd="68dp"
         android:layout_marginBottom="16dp"
         android:text="Dodaj"
-        app:backgroundTint="@color/orange"
         android:textColor="@color/white"
+        app:backgroundTint="@color/orange"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button" />
 
@@ -48,44 +48,41 @@
         android:layout_marginEnd="80dp"
         android:layout_marginBottom="16dp"
         android:text="Anuluj"
-        app:backgroundTint="@color/orange"
         android:textColor="@color/white"
+        app:backgroundTint="@color/orange"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageView
         android:id="@+id/uploadImage"
-        android:layout_width="114dp"
-        android:layout_height="91dp"
-        android:layout_marginStart="140dp"
+        android:layout_width="108dp"
+        android:layout_height="123dp"
+        android:layout_marginStart="128dp"
         android:layout_marginTop="88dp"
+        android:src="@drawable/baseline_add_a_photo_24"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@drawable/baseline_add_a_photo_24" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <SeekBar
         android:id="@+id/seekBar2"
-        android:layout_width="221dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="101dp"
-        android:layout_marginBottom="4dp"
+        android:layout_width="218dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginBottom="24dp"
         app:layout_constraintBottom_toTopOf="@+id/uploadButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/progressBar" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/editTextDate"
         android:layout_width="221dp"
         android:layout_height="55dp"
-        android:layout_marginStart="92dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="24dp"
         android:layout_weight="0.6"
         android:background="@drawable/border"
+        android:clickable="true"
         android:ems="10"
         android:focusable="false"
-        android:clickable="true"
         android:hint="Data zakupu"
         android:inputType="date"
         android:padding="16dp"
@@ -96,7 +93,7 @@
         android:id="@+id/editTextNumberDecimal"
         android:layout_width="221dp"
         android:layout_height="55dp"
-        android:layout_marginStart="92dp"
+        android:layout_marginStart="80dp"
         android:layout_marginTop="20dp"
         android:layout_weight="0.6"
         android:background="@drawable/border"
@@ -111,7 +108,7 @@
         android:id="@+id/uploadCaption"
         android:layout_width="221dp"
         android:layout_height="55dp"
-        android:layout_marginStart="93dp"
+        android:layout_marginStart="80dp"
         android:layout_marginTop="20dp"
         android:layout_weight="0.6"
         android:background="@drawable/border"
@@ -125,7 +122,7 @@
         android:id="@+id/Sklep"
         android:layout_width="221dp"
         android:layout_height="55dp"
-        android:layout_marginStart="92dp"
+        android:layout_marginStart="80dp"
         android:layout_marginTop="20dp"
         android:layout_weight="0.6"
         android:background="@drawable/border"
@@ -139,43 +136,45 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="36dp"
         android:text="Gwarancja"
         android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextNumberDecimal" />
 
     <TextView
-        android:textColor="@color/white"
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="103dp"
-        android:layout_marginTop="13dp"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="20dp"
         android:text="Zwrot"
+        android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/seekBar1" />
 
     <TextView
         android:id="@+id/textView1"
-        android:layout_width="0dp"
+        android:layout_width="100dp"
         android:layout_height="21dp"
-        android:layout_marginEnd="121dp"
-        android:layout_marginBottom="221dp"
+        android:layout_marginStart="46dp"
+        android:layout_marginTop="36dp"
         android:text=""
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:textColor="@color/white"
+        app:layout_constraintStart_toEndOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNumberDecimal" />
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="121dp"
-        android:layout_marginBottom="127dp"
+        android:layout_width="100dp"
+        android:layout_height="21dp"
+        android:layout_marginStart="73dp"
+        android:layout_marginTop="20dp"
         android:text=""
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:textColor="@color/white"
+        app:layout_constraintStart_toEndOf="@+id/textView5"
+        app:layout_constraintTop_toBottomOf="@+id/seekBar1" />
 
     <ProgressBar
         android:id="@+id/progressBar"

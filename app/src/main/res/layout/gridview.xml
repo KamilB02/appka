@@ -15,10 +15,10 @@
         <GridView
             android:id="@+id/gridView1"
             android:layout_width="match_parent"
-            android:layout_height="596dp"
+            android:layout_height="651dp"
             android:layout_above="@id/bottomAppBar"
             android:layout_below="@id/bottomNavigationView"
-            android:layout_marginTop="-661dp"
+            android:layout_marginTop="-716dp"
             android:numColumns="2"
             android:scrollbars="none"
             tools:ignore="NotSibling" />
@@ -45,10 +45,11 @@
         </com.google.android.material.bottomappbar.BottomAppBar>
 
     </RelativeLayout>
+
     <TextView
         android:id="@+id/textView16"
-        android:layout_width="414dp"
-        android:layout_height="63dp"
+        android:layout_width="396dp"
+        android:layout_height="73dp"
         android:layout_centerInParent="true"
         android:background="@color/orange"
         android:gravity="center"
