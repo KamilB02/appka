@@ -148,6 +148,9 @@ class UploadActivity : AppCompatActivity() {
         uploadButton?.setOnClickListener {
             if (imageUri != null ) {
                 uploadToFirebase(imageUri!!)
+                uploadButton?.setOnClickListener {
+                    startActivity(Intent(this@UploadActivity,GridActivity::class.java))
+                }
             } else {
                 Toast.makeText(this@UploadActivity, "Brak danych lub są one nie poprawne", Toast.LENGTH_SHORT)
                     .show()
@@ -201,8 +204,8 @@ class UploadActivity : AppCompatActivity() {
                     databaseReference.child(key).setValue(dataClass)
                 }
                 progressBar?.visibility = View.INVISIBLE
-
-
+                uploadButton?.text = "Powrót"
+                startActivity(Intent(this@UploadActivity,GridActivity::class.java))
 
                 createNotificationChannel()
 
@@ -225,10 +228,10 @@ class UploadActivity : AppCompatActivity() {
                     notify(1, builder.build())
                 }
                 Toast.makeText(this@UploadActivity, "Zakończono powodzeniem !", Toast.LENGTH_SHORT).show()
-                startActivity(Intent(this@UploadActivity,GridActivity::class.java))
             }
         }.addOnProgressListener {
             progressBar?.progressTintList = ColorStateList.valueOf(android.graphics.Color.WHITE)
+            uploadButton?.text = ""
             progressBar?.visibility = View.VISIBLE
 
         }.addOnFailureListener {
